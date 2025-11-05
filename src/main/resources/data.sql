@@ -1,0 +1,22 @@
+INSERT INTO movies (title, duration, genre, start_date, classification, state) VALUES
+('The Galactic Odyssey', 135, 'Science Fiction', '2023-10-20', 4.50, 'A'),
+('Shadows of the Past', 98, 'Thriller', '2023-11-15', 3.80, 'A'),
+('A Culinary Affair', 105, 'Comedy', '2023-12-01', 4.10, 'A'),
+('The Dragon’s Jewel', 142, 'Fantasy', '2024-01-10', 4.90, 'A'),
+('Streets of Brooklyn', 112, 'Drama', '2023-09-05', 3.20, 'I'),
+('Code Red Alert', 95, 'Action', '2024-02-20', 4.00, 'A'),
+('Whispers in the Wind', 120, 'Mystery', '2023-07-28', 3.50, 'A'),
+('Ancient Ruins Revisited', 88, 'Documentary', '2023-06-12', 4.30, 'A'),
+('Love in Paris', 102, 'Romance', '2024-03-01', 3.90, 'A'),
+('The Last Stand of Man', 155, 'Science Fiction', '2023-08-01', 4.70, 'A'),
+('Jungle Expedition', 90, 'Adventure', '2023-05-20', 3.70, 'I'),
+('Digital Dreamscape', 118, 'Thriller', '2024-04-15', 4.20, 'A'),
+('The Hidden City', 125, 'Fantasy', '2023-03-30', 4.60, 'A'),
+('School Reunion Chaos', 93, 'Comedy', '2024-05-10', 3.00, 'A'),
+('Silence Before the Storm', 140, 'Drama', '2023-02-14', 4.40, 'I'),
+('Speeding Bullet Train', 108, 'Action', '2024-06-25', 4.80, 'A'),
+('Solving the Unsolvable', 115, 'Mystery', '2023-01-07', 3.60, 'A'),
+('Echoes of Tomorrow', 130, 'Science Fiction', '2024-07-04', 4.55, 'A'),
+('Beyond the Horizon', 100, 'Documentary', '2023-04-22', 3.30, 'A'),
+('The Venetian Secret', 122, 'Thriller', '2024-08-19', 4.15, 'I')
+ON CONFLICT (title) DO NOTHING;
