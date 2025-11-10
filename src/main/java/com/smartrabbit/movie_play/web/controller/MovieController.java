@@ -5,6 +5,7 @@ import com.smartrabbit.movie_play.domain.dto.SuggestionDto;
 import com.smartrabbit.movie_play.domain.dto.UpdateMovieDto;
 import com.smartrabbit.movie_play.domain.service.MoviePlayAIService;
 import com.smartrabbit.movie_play.domain.service.MovieService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -65,14 +66,14 @@ public class MovieController {
 
     }
     @PutMapping("/movies/{id}")
-    public ResponseEntity<MovieDto> update(@PathVariable Long id, @RequestBody UpdateMovieDto movieDto){
+    public ResponseEntity<MovieDto> update(@PathVariable Long id, @RequestBody @Valid UpdateMovieDto movieDto){
         MovieDto movieDTOResponse=this.movieService.update(id,movieDto);
 
         return ResponseEntity.status(HttpStatus.OK).body(movieDTOResponse);
 
     }
     @DeleteMapping("/movies/{id}")
-    public ResponseEntity<Void> delete(@PathVariable Long id){
+    public ResponseEntity<Void> delete(@PathVariable @Valid Long id){
         this.movieService.delete(id);
         //return ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         return ResponseEntity.ok().build();
