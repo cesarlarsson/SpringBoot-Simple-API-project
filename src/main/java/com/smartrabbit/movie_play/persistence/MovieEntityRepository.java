@@ -3,6 +3,7 @@ package com.smartrabbit.movie_play.persistence;
 import com.smartrabbit.movie_play.domain.dto.MovieDto;
 import com.smartrabbit.movie_play.domain.dto.UpdateMovieDto;
 import com.smartrabbit.movie_play.domain.exception.MovieAlreadyExistException;
+import com.smartrabbit.movie_play.domain.exception.MovieNotFoundException;
 import com.smartrabbit.movie_play.domain.repository.MovieRepository;
 import com.smartrabbit.movie_play.persistence.crud.CrudMovieEntity;
 import com.smartrabbit.movie_play.persistence.entity.MovieEntity;
@@ -73,6 +74,8 @@ public class MovieEntityRepository implements MovieRepository {
 
     @Override
     public void delete(Long id) {
+        MovieEntity movieEntity = this.crudMovieEntity.findById(id)
+                .orElseThrow(() -> new MovieNotFoundException(id));
         this.crudMovieEntity.deleteById(id);
     }
 

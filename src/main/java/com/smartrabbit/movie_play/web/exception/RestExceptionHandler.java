@@ -1,6 +1,7 @@
 package com.smartrabbit.movie_play.web.exception;
 
 import com.smartrabbit.movie_play.domain.exception.MovieAlreadyExistException;
+import com.smartrabbit.movie_play.domain.exception.MovieNotFoundException;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -17,6 +18,11 @@ public class RestExceptionHandler {
         return ResponseEntity.badRequest().body(error);
     }
 
+    @ExceptionHandler(MovieNotFoundException.class)
+    public ResponseEntity<Error> handleException(MovieNotFoundException ex){
+        Error error = new Error("movie-not-found", ex.getMessage());
+        return ResponseEntity.status(404).body(error);
+    }
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<List<Error>> handleException(MethodArgumentNotValidException ex) {
